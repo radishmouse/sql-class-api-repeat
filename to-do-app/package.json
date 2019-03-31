@@ -1,0 +1,27 @@
+{
+  "name": "sql-class-api-repeat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Anthony-Moss/sql-class-api-repeat.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Anthony-Moss/sql-class-api-repeat/issues"
+  },
+  "homepage": "https://github.com/Anthony-Moss/sql-class-api-repeat#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "mocha": "^6.0.2",
+    "nodemon": "^1.18.10"
+  }
+}
