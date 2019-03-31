@@ -24,8 +24,14 @@ class toDo {
     //     })
     // }
     static getAll() {
-        return db.any(`select * from toDos`);
-    }
+        return db.any(`select * from toDos`)
+        .then((arrayOfToDos) => {
+            return arrayOfToDos.map((toDoData) => {
+                const aToDo = new toDo(toDoData.id, toDoData.content, toDoData.created, toDoData.due, toDoData.status);
+                return aToDo;
+            });
+        });
+    };
 }
 
 module.exports = toDo;
