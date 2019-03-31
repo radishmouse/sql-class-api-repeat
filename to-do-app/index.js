@@ -6,18 +6,35 @@
 //to-dos can also be deleted from the list
 // to-dos can be changed to different lists
 const http = require('http');
+const querystring = require('querystring');
 
 const hostname = '127.0.0.1';
 
 const port = 3000;
 
-const server = http.createServer((req, res) => {
-    console.log(req.url);
-    res.statusCode = 200
+const toDos = require('./toDos');
 
-    res.setHeader('Content-type', 'text/plain')
+const server = http.createServer(async (req, res) => {
+    const method = req.method;
+    const parts = req.url.split("/");
+    console.log(req);
 
-    res.end("Oh its sent!!")
+    res.statusCode = 200;
+    res.setHeader('Content-type', 'application/json');
+
+    // if (req.url === "/") {
+        console.log(req);
+        if (method === "GET") {
+            if (parts.length === 2) {
+                const allToDos = await toDos.getAll();
+                const toDoJSON = JSON.stringify(allToDos);
+                res.end(toDoJSON);
+            } else {
+                res.status = 404;
+                res.end('Resource not found');
+            }
+        }
+    // }
 });
 
 server.listen(port, hostname, () => {
